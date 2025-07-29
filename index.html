@@ -1,0 +1,3040 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Ramesh Trader - Your Trusted Wholesale Partner Since 1923</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/jpg" sizes="32x32" href="assets/img/logos/14.jpg">
+  <link rel="icon" type="image/jpg" sizes="96x96" href="assets/img/logos/14.jpg">
+  <link rel="icon" type="image/jpg" sizes="16x16" href="assets/img/logos/14.jpg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #ffffff;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 11px;
+      left: 20px;
+      right: 20px;
+      z-index: 1000;
+      padding: 15px 25px;
+      border-radius: 16px;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .header:hover {
+      background: rgba(255, 255, 255, 0.98);
+      border-color: rgba(9, 75, 180, 0.2);
+      box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.15),
+        0 8px 20px rgba(9, 75, 180, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 24px;
+      color: #094bb4;
+      text-decoration: none;
+    }
+    
+    .logo img {
+      height: 60px;
+      margin-right: 12px;
+      border-radius: 8px;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .logo-main {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .logo-tagline {
+      font-size: 11px;
+      font-weight: 400;
+      color: #6b7280;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 35px;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav-menu a {
+      text-decoration: none;
+      color: #4b5563;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--theme-color);
+    }
+    
+    .nav-menu a:hover::after {
+      transform: scaleX(1);
+    }
+    
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .download-btn {
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .download-btn:hover {
+      color: #fff;
+      background: linear-gradient(135deg, #083a8c 0%, #5a4ba3 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(9, 75, 180, 0.3);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #475569;
+      cursor: pointer;
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100%;
+      background: white;
+      z-index: 9999;
+      padding: 80px 30px 30px;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #475569;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+
+    .mobile-menu-close:hover {
+      background-color: #f1f5f9;
+    }
+
+    .mobile-nav-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mobile-nav-menu li {
+      margin-bottom: 20px;
+    }
+
+    .mobile-nav-menu a {
+      display: block;
+      padding: 15px 0;
+      text-decoration: none;
+      color: #1f2937;
+      font-weight: 600;
+      font-size: 18px;
+      border-bottom: 1px solid #e5e7eb;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-nav-menu a:hover {
+      color: #094bb4;
+    }
+
+    .mobile-download-btn {
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      color: white;
+      padding: 15px 25px;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-download-btn:hover {
+      background: linear-gradient(135deg, #083a8c 0%, #5a4ba3 100%);
+      color: white;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 0px 0 0px;
+      background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 50%, #ddd6fe 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23e2e8f0" opacity="0.5"/><circle cx="75" cy="75" r="1" fill="%23cbd5e1" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+      opacity: 0.6;
+    }
+    
+    .hero-content {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-logo {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero-title {
+      font-size: 52px;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 25px;
+      line-height: 1.1;
+    }
+    
+    .hero-description {
+      font-size: 20px;
+      color: #6b7280;
+      max-width: 650px;
+      margin: 0 auto 50px;
+      line-height: 1.7;
+    }
+    
+    /* App Cards */
+    .app-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .app-card {
+      background: white;
+      padding: 45px 35px;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .app-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.05), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    .app-card:hover::before {
+      left: 100%;
+    }
+    
+    .app-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+      border-color: rgba(30, 64, 175, 0.2);
+    }
+    
+    .app-icon {
+      font-size: 56px;
+      margin-bottom: 25px;
+      display: block;
+    }
+    
+    .app-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 15px;
+      letter-spacing: -0.5px;
+    }
+    
+    .app-features {
+      margin: 25px 0;
+    }
+    
+    .app-feature {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #6b7280;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .app-feature-icon {
+      font-size: 18px;
+    }
+    
+    .app-feature-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .app-feature-title {
+      font-weight: 600;
+      color: #111827;
+      font-size: 15px;
+    }
+    
+    .app-feature-subtitle {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    
+    .app-description {
+      color: #64748b;
+      margin: 20px 0 30px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    
+    .app-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    
+    .app-btn {
+      padding: 12px 20px;
+      border: 2px solid #1e40af;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .app-btn.primary {
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      color: white;
+      border: 2px solid transparent;
+    }
+    
+    .app-btn.primary:hover {
+      background: linear-gradient(135deg, #083a8c 0%, #5a4ba3 100%);
+      transform: translateY(-2px);
+    }
+    
+    .app-btn.secondary {
+      background: transparent;
+      color: #094bb4;
+      border-color: #094bb4;
+    }
+    
+    .app-btn.secondary:hover {
+      background: #f1f5f9;
+      transform: translateY(-2px);
+    }
+    
+    /* Hero Action Buttons */
+    .hero-actions {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 50px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-btn {
+      padding: 16px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .hero-btn.primary {
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(9, 75, 180, 0.3);
+    }
+    
+    .hero-btn.primary:hover {
+      background: linear-gradient(135deg, #083a8c 0%, #5a4ba3 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(9, 75, 180, 0.4);
+    }
+    
+    .hero-btn.secondary {
+      background: white;
+      color: #094bb4;
+      border: 2px solid #094bb4;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero-btn.secondary:hover {
+      background: #f1f5f9;
+      transform: translateY(-3px);
+    }
+    
+    .hero-btn.tertiary {
+      background: rgba(255, 255, 255, 0.7);
+      color: #64748b;
+      border: 2px solid rgba(226, 232, 240, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    
+    .hero-btn.tertiary:hover {
+      background: rgba(255, 255, 255, 0.9);
+      color: #475569;
+      transform: translateY(-3px);
+    }
+    
+    /* Banner Carousel Styles */
+    .banner-carousel-section {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+    }
+    
+    .banner-carousel-container {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      min-height: 500px;
+    }
+    
+    .banner-carousel-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .banner-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    
+    .banner-slide.active {
+      opacity: 1;
+    }
+    
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(9, 75, 180, 0.8) 0%, rgba(109, 94, 199, 0.8) 50%, rgba(88, 71, 163, 0.7) 100%);
+      z-index: 1;
+    }
+    
+    .banner-content-left {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      color: white;
+      padding: 0px 0;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    
+    .banner-slide .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    
+    .banner-badge {
+      margin-top: 37px;
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(9, 75, 180, 0.9) 0%, rgba(109, 94, 199, 0.9) 100%);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .banner-main-title {
+      color: white;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+    
+    .banner-subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 25px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .banner-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 35px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .banner-actions {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .banner-btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+    }
+    
+    .banner-btn.primary {
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      color: white;
+      border: 2px solid transparent;
+    }
+    
+    .banner-btn.primary:hover {
+      background: linear-gradient(135deg, #083a8c 0%, #5a4ba3 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(9, 75, 180, 0.4);
+      color: white;
+    }
+    
+    .banner-btn.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    
+    .banner-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    
+    /* Carousel Navigation */
+    .carousel-navigation {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    
+    .carousel-btn {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(9, 75, 180, 0.8) 0%, rgba(109, 94, 199, 0.8) 100%);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      pointer-events: all;
+    }
+    
+    .carousel-btn:hover {
+      background: linear-gradient(135deg, rgba(9, 75, 180, 1) 0%, rgba(109, 94, 199, 1) 100%);
+      border-color: rgba(255, 255, 255, 0.8);
+      transform: scale(1.1);
+      box-shadow: 0 5px 20px rgba(9, 75, 180, 0.4);
+    }
+    
+    .carousel-btn:active {
+      transform: scale(0.95);
+    }
+    
+    /* Carousel Dots */
+    .carousel-dots {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+      z-index: 10;
+    }
+    
+    .dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+    }
+    
+    .dot.active {
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      border-color: white;
+      transform: scale(1.2);
+    }
+    
+    .dot:hover {
+      background: rgba(255, 255, 255, 0.8);
+      transform: scale(1.1);
+    }
+    
+    /* Responsive Header */
+    @media (max-width: 1024px) {
+      .header {
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        padding: 12px 20px;
+        border-radius: 12px;
+      }
+      
+      .hero {
+        padding: 130px 0 70px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        padding: 10px 15px;
+        border-radius: 10px;
+      }
+      
+      .logo-main {
+        font-size: 18px;
+      }
+      
+      .logo-tagline {
+        font-size: 10px;
+      }
+      
+      .nav-menu {
+        gap: 20px;
+      }
+      
+      .nav-menu a {
+        font-size: 14px;
+      }
+      
+      .download-btn {
+        padding: 10px 18px;
+        font-size: 13px;
+      }
+      
+      .hero {
+        padding: 120px 0 60px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header {
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        padding: 8px 12px;
+        border-radius: 8px;
+      }
+      
+      .logo img {
+        height: 35px;
+      }
+      
+      .logo-main {
+        font-size: 16px;
+      }
+      
+      .nav-menu {
+        display: none;
+      }
+      
+      .download-btn {
+        padding: 8px 15px;
+        font-size: 12px;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .hero {
+        padding: 110px 0 50px;
+      }
+    }
+    
+    /* Responsive Banner Carousel */
+    @media (max-width: 1200px) {
+      .banner-main-title {
+        font-size: 2.5rem;
+      }
+      
+      .banner-subtitle {
+        font-size: 1.3rem;
+      }
+      
+      .banner-description {
+        font-size: 0.9rem;
+      }
+      
+      .carousel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .banner-carousel-container {
+        height: 80vh;
+        min-height: 600px;
+      }
+      
+      .banner-content-left {
+        max-width: 500px;
+        padding: 40px 15px;
+      }
+      
+      .banner-main-title {
+        font-size: 2rem;
+      }
+      
+      .banner-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .carousel-navigation {
+        padding: 0 20px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .banner-carousel-container {
+        height: 70vh;
+        min-height: 500px;
+      }
+      
+      .banner-content-left {
+        padding: 30px 10px;
+      }
+      
+      .banner-main-title {
+        font-size: 1.8rem;
+      }
+      
+      .banner-subtitle {
+        font-size: 1rem;
+      }
+      
+      .banner-description {
+        font-size: 0.8rem;
+      }
+      
+      .banner-btn {
+        padding: 10px 20px;
+        font-size: 12px;
+        min-width: 120px;
+      }
+      
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+      
+      .carousel-navigation {
+        padding: 0 10px;
+      }
+      
+      .dot {
+        width: 12px;
+        height: 12px;
+      }
+      
+      .carousel-dots {
+        gap: 10px;
+        bottom: 15px;
+      }
+    }
+    
+    /* Legacy Section */
+    .legacy {
+      padding: 39px 0;
+      background: white;
+      position: relative;
+    }
+    
+    .legacy-header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .section-badge {
+      background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+      color: #0277bd;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      display: inline-block;
+      border: 1px solid rgba(2, 119, 189, 0.2);
+    }
+    
+    .section-title {
+      font-size: 48px;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 25px;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      color: #6b7280;
+      max-width: 850px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      margin-top: 0px;
+    }
+    
+    .stat {
+      text-align: center;
+      padding: 8px 20px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .stat:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stat-number {
+      font-size: 56px;
+      font-weight: 800;
+      color: #1e40af;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .stat-label {
+      font-size: 18px;
+      color: #6b7280;
+      font-weight: 600;
+    }
+    
+    /* Services Section */
+    .services {
+      padding: 31px 0;
+      background: #b1cff7;
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+    }
+    
+    .services-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      align-items: stretch;
+      max-width: 1200px;
+      margin: 0 auto;
+      height: fit-content;
+    }
+    
+    .service-card {
+      background: white;
+      padding: 11px 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      position: relative;
+      overflow: hidden;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(9, 75, 180, 0.03), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    .service-card:hover::before {
+      left: 100%;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      border-color: rgba(109, 94, 199, 0.3);
+    }
+    
+    .service-icon {
+      padding-top: 5px;
+      align-self: center;
+      width: 60px;
+      border-radius: 10px;
+      background: var(--theme-color);
+      font-size: 32px;
+      color: #fff !important;
+      margin-bottom: 15px;
+      display: block;
+      flex-shrink: 0;
+    }
+    
+    .service-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+      line-height: 1.3;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .service-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center;
+      margin: 10px 0 15px;
+    }
+    
+    .feature-tag {
+      background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 100%);
+      color: #6d5ec7;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 600;
+      border: 1px solid rgba(109, 94, 199, 0.2);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    
+    .feature-tag:hover {
+      background: linear-gradient(135deg, #c7d2fe 0%, #c4b5fd 100%);
+      transform: translateY(-1px);
+    }
+    
+    .service-description {
+      color: #6b7280;
+      line-height: 1.5;
+      font-size: 13px;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .services-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    .services-cta-btn {
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(9, 75, 180, 0.3);
+    }
+    
+    .services-cta-btn:hover {
+      background: linear-gradient(135deg, #083a8c 0%, #5a4ba3 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(9, 75, 180, 0.4);
+      color: white;
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      padding: 41px 0;
+      background: white;
+      position: relative;
+    }
+    
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    
+    /* Testimonials Carousel */
+    .testimonials-carousel {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonials-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+    
+    .testimonials-set {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+      align-items: stretch;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    .testimonials-set.active {
+      display: grid;
+      opacity: 1;
+    }
+    
+    .testimonial-card {
+      background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+      padding: 40px 35px;
+      border-radius: 24px;
+      border-left: 5px solid #094bb4;
+      position: relative;
+      transition: all 0.3s ease;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      border-left-color: #6d5ec7;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 25px;
+      font-size: 80px;
+      color: rgba(9, 75, 180, 0.1);
+      font-family: serif;
+      line-height: 1;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      color: #4b5563;
+      margin-bottom: 25px;
+      font-size: 16px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 2;
+      flex-grow: 1;
+    }
+    
+    .testimonial-author {
+      font-weight: 700;
+      color: #111827;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    
+    .testimonial-role {
+      color: #6b7280;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Testimonials Navigation */
+    .testimonials-navigation {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 -30px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    
+    .testimonials-btn {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, rgba(9, 75, 180, 0.9) 0%, rgba(109, 94, 199, 0.9) 100%);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      pointer-events: all;
+      box-shadow: 0 4px 20px rgba(9, 75, 180, 0.3);
+    }
+    
+    .testimonials-btn:hover {
+      background: linear-gradient(135deg, rgba(9, 75, 180, 1) 0%, rgba(109, 94, 199, 1) 100%);
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(9, 75, 180, 0.4);
+    }
+    
+    .testimonials-btn:active {
+      transform: scale(0.95);
+    }
+    
+    .testimonials-btn.prev-btn {
+      margin-left: -25px;
+    }
+    
+    .testimonials-btn.next-btn {
+      margin-right: -25px;
+    }
+    
+    /* Testimonials Dots */
+    .testimonials-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 50px;
+    }
+    
+    .testimonial-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(9, 75, 180, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(9, 75, 180, 0.5);
+    }
+    
+    .testimonial-dot.active {
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      border-color: #094bb4;
+      transform: scale(1.2);
+    }
+    
+    .testimonial-dot:hover {
+      background: rgba(9, 75, 180, 0.6);
+      transform: scale(1.1);
+    }
+    
+    /* Responsive Testimonials */
+    @media (max-width: 1200px) {
+      .testimonials-btn.prev-btn {
+        margin-left: -20px;
+      }
+      
+      .testimonials-btn.next-btn {
+        margin-right: -20px;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .testimonials-set {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+      
+      .testimonial-card {
+        padding: 30px 25px;
+        min-height: 250px;
+      }
+      
+      .testimonials-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+      }
+      
+      .testimonials-btn.prev-btn {
+        margin-left: -15px;
+      }
+      
+      .testimonials-btn.next-btn {
+        margin-right: -15px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .testimonials-set {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .testimonial-card {
+        padding: 25px 20px;
+        min-height: 220px;
+      }
+      
+      .testimonial-text {
+        font-size: 15px;
+      }
+      
+      .testimonials-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+      }
+      
+      .testimonials-btn.prev-btn {
+        margin-left: -10px;
+      }
+      
+      .testimonials-btn.next-btn {
+        margin-right: -10px;
+      }
+      
+      .testimonial-dot {
+        width: 10px;
+        height: 10px;
+      }
+      
+      .testimonials-dots {
+        gap: 8px;
+        margin-top: 30px;
+      }
+    }
+    
+    /* Contact Section */
+    .contact {
+      padding: 42px 0;
+      background: #b1cff7;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="contactgrain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%234b5563" opacity="0.3"/><circle cx="80" cy="80" r="1" fill="%231f2937" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23contactgrain)"/></svg>') repeat;
+      opacity: 0.8;
+    }
+    
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .contact-info h2 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 25px;
+      line-height: 1.2;
+      color: #000;
+    }
+    
+    .contact-info > p {
+      font-size: 18px;
+      color: #000;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    
+    .contact-section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 50px 0 30px 0;
+      color: #000;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(10px);
+    }
+    
+    .contact-icon {
+      font-size: 24px;
+      color: #000;
+      margin-top: 2px;
+    }
+    
+    .contact-details strong {
+      color: #000;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    
+    .contact-details {
+      color: #000;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    .contact-form {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 50px 40px;
+      border-radius: 24px;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .contact-form h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 35px;
+      color: #f1f5f9;
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #e2e8f0;
+      font-size: 14px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px 18px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-family: inherit;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .form-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .form-btn {
+      padding: 15px 28px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .form-btn.primary {
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(9, 75, 180, 0.3);
+    }
+    
+    .form-btn.primary:hover {
+      background: linear-gradient(135deg, #083a8c 0%, #5a4ba3 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(9, 75, 180, 0.4);
+    }
+    
+    .form-btn.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .form-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+    }
+    
+    /* Mobile Frame Styles */
+    .mobile-frame-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100%;
+    }
+    
+    .mobile-frame {
+      position: relative;
+      width: 340px;
+      height: 634px;
+      background: linear-gradient(145deg, #1f2937 0%, #374151 100%);
+      border-radius: 35px;
+      padding: 8px;
+      box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.4),
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      /* transform: perspective(1000px) rotateX(2deg) rotateY(-3deg);
+      transition: all 0.4s ease; */
+    }
+    
+    /* .mobile-frame:hover {
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02);
+      box-shadow: 
+        0 35px 80px rgba(0, 0, 0, 0.5),
+        0 20px 45px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    } */
+    
+    .mobile-header {
+      position: relative;
+      height: 35px;
+      background: #111827;
+      border-radius: 27px 27px 0 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .mobile-notch {
+      width: 140px;
+      height: 20px;
+      background: #000;
+      border-radius: 0 0 15px 15px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .mobile-speaker {
+      width: 50px;
+      height: 4px;
+      background: #4b5563;
+      border-radius: 2px;
+      margin-top: 8px;
+    }
+    
+    .mobile-screen {
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      height: calc(100% - 35px);
+      border-radius: 0 0 27px 27px;
+      padding: 20px 15px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .mobile-screen::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+
+    
+    .mobile-frame .contact-form {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 20px 18px;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .mobile-frame .contact-form h3 {
+      color: #094bb4;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    
+    .mobile-frame .contact-form form {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-evenly;
+      flex: 1;
+    }
+    
+    .mobile-frame .form-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .mobile-frame .form-group {
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+    
+    .mobile-frame .form-group label {
+      color: #374151;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: block;
+    }
+    
+    .mobile-frame .form-group input,
+    .mobile-frame .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 13px;
+      transition: all 0.3s ease;
+      background: white;
+      color: #374151;
+      resize: none;
+    }
+    
+    .mobile-frame .form-group textarea {
+      height: 60px;
+      min-height: 60px;
+      max-height: 60px;
+    }
+    
+    .mobile-frame .form-group input:focus,
+    .mobile-frame .form-group textarea:focus {
+      border-color: #094bb4;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(9, 75, 180, 0.1);
+    }
+    
+    .mobile-frame .form-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+      flex-shrink: 0;
+      align-items: stretch;
+    }
+    
+    .mobile-frame .form-btn {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      text-align: center;
+      min-height: 48px;
+    }
+    
+    .mobile-frame .form-btn.primary {
+      background: linear-gradient(135deg, #094bb4 0%, #6d5ec7 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(9, 75, 180, 0.3);
+    }
+    
+    .mobile-frame .form-btn.primary:hover {
+      background: linear-gradient(135deg, #083a8c 0%, #5a4ba3 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(9, 75, 180, 0.4);
+    }
+    
+    .mobile-frame .form-btn.secondary {
+      background: white;
+      color: #094bb4;
+      border: 2px solid #094bb4;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 12px 16px; /* Adjust for border */
+    }
+    
+    .mobile-frame .form-btn.secondary:hover {
+      background: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Form Message Styles */
+    .form-message {
+      margin-top: 15px;
+      padding: 12px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+    }
+    
+    .form-message.success {
+      background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .form-message.error {
+      background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    .mobile-frame .form-message {
+      margin-top: 10px;
+      padding: 10px 12px;
+      font-size: 12px;
+      border-radius: 6px;
+    }
+    
+    .btn-loading {
+      display: none;
+    }
+    
+    .form-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+    
+    .form-btn:disabled:hover {
+      transform: none !important;
+      box-shadow: 0 4px 15px rgba(9, 75, 180, 0.3) !important;
+    }
+    
+    /* Footer */
+    .footer {
+      background: #fff;
+      color: black;
+      padding: 33px 0 0px;
+      position: relative;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 20px;
+    }
+    
+    .footer-brand {
+      padding-right: 30px;
+    }
+    
+    .footer-logo {
+      display: flex;
+        align-items: center;
+      margin-bottom: 25px;
+      min-width: 200px;
+    }
+    
+    .footer-logo img {
+      height: 100px;
+      margin-right: 12px;
+      border-radius: 8px;
+    }
+    
+    .footer-logo-text {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+    
+    .footer-logo-main {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+    
+    .footer-logo-tagline {
+      font-size: 12px;
+      color: #ffffff;
+    }
+    
+    .footer-description {
+      color: #000;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    
+    .footer-section h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #000;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-section ul li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-section ul li a {
+      color: #000;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 14px;
+    }
+    
+    .footer-section ul li a:hover {
+     color: var(--theme-color);
+    }
+    
+    .footer-section ul li:not(:has(a)) {
+      color: #000;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .footer-bottom {
+      align-self: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 40px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 14px;
+    }
+    
+    /* Mobile Responsiveness */
+    @media (max-width: 1024px) {
+      .services-grid {
+        gap: 20px;
+        max-width: 900px;
+      }
+      
+      .service-card {
+        padding: 20px 15px;
+        min-height: 180px;
+      }
+      
+      .service-icon {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+      
+      .service-title {
+        font-size: 15px;
+        min-height: 35px;
+      }
+      
+      .service-description {
+        font-size: 12px;
+      }
+      
+      .contact-content {
+        gap: 60px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .nav-menu {
+        display: none;
+      }
+      
+      .download-btn {
+        display: none;
+      }
+      
+      .hero {
+        padding: 100px 0 60px;
+      }
+      
+      .hero-title {
+        font-size: 36px;
+      }
+      
+      .hero-description {
+        font-size: 18px;
+      }
+      
+      .app-cards {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      
+      .services {
+        padding: 60px 0;
+        min-height: auto;
+      }
+      
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 600px;
+      }
+      
+      .service-card {
+        padding: 18px 12px;
+        min-height: 160px;
+      }
+      
+      .service-icon {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #000000;
+      }
+      
+      .service-title {
+        font-size: 14px;
+        min-height: 30px;
+      }
+      
+      .service-description {
+        font-size: 11px;
+        line-height: 1.4;
+      }
+      
+      .feature-tag {
+        font-size: 9px;
+        padding: 3px 8px;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+      
+      .footer-logo {
+        justify-content: center;
+        min-width: auto;
+      }
+      
+      .footer-logo-main {
+        font-size: 20px;
+      }
+      
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+      
+
+      
+      .section-title {
+        font-size: 36px;
+      }
+      
+      .contact-info h2 {
+        font-size: 32px;
+      }
+      
+      .mobile-frame {
+        width: 300px;
+        height: 480px;
+        transform: perspective(800px) rotateX(1deg) rotateY(-2deg);
+      }
+      
+      .mobile-frame .contact-form {
+        padding: 18px 15px;
+      }
+      
+      .mobile-frame .contact-form h3 {
+        font-size: 17px;
+        margin-bottom: 12px;
+      }
+      
+      .mobile-frame .form-group {
+        margin-bottom: 10px;
+      }
+      
+      .mobile-frame .form-group textarea {
+        height: 50px;
+        min-height: 50px;
+        max-height: 50px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .services {
+        padding: 40px 0;
+      }
+      
+      .services-header {
+        margin-bottom: 30px;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        max-width: 350px;
+      }
+      
+      .service-card {
+        padding: 15px 10px;
+        min-height: 140px;
+      }
+      
+      .service-icon {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+      
+      .service-title {
+        font-size: 13px;
+        min-height: 26px;
+        margin-bottom: 8px;
+      }
+      
+      .service-description {
+        font-size: 10px;
+        line-height: 1.3;
+      }
+      
+      .feature-tag {
+        font-size: 8px;
+        padding: 2px 6px;
+      }
+      
+      .services-cta {
+        margin-top: 25px;
+      }
+      
+      .services-cta-btn {
+        padding: 10px 20px;
+        font-size: 12px;
+      }
+      
+      .hero {
+        padding: 90px 0 50px;
+      }
+      
+      .hero-title {
+        font-size: 28px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .app-card,
+      .service-card {
+        padding: 30px 25px;
+      }
+      
+      .contact-form {
+        padding: 35px 25px;
+      }
+      
+      .hero-btn,
+      .form-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+      }
+      
+      .app-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .app-card {
+        min-width: unset;
+      }
+      
+      .mobile-frame-container {
+        padding: 20px 10px;
+      }
+      
+      .mobile-frame {
+        width: 280px;
+        height: 550px;
+        border-radius: 30px;
+        padding: 6px;
+        transform: perspective(600px) rotateX(0deg) rotateY(0deg);
+      }
+      
+      .mobile-frame .contact-form {
+        padding: 12px 10px;
+        border-radius: 15px;
+      }
+      
+      .mobile-frame .contact-form h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      
+      .mobile-frame .form-group {
+        margin-bottom: 8px;
+      }
+      
+      .mobile-frame .form-group label {
+        font-size: 11px;
+        margin-bottom: 3px;
+      }
+      
+      .mobile-frame .form-group input,
+      .mobile-frame .form-group textarea {
+        padding: 8px 10px;
+        font-size: 12px;
+        border-radius: 8px;
+      }
+      
+      .mobile-frame .form-group textarea {
+        height: 45px;
+        min-height: 45px;
+        max-height: 45px;
+      }
+      
+      .mobile-frame .form-btn {
+        padding: 12px 14px;
+        font-size: 12px;
+        border-radius: 10px;
+        min-height: 42px;
+      }
+      
+      .mobile-frame .form-btn.secondary {
+        padding: 10px 14px; /* Adjust for border */
+      }
+      
+      .mobile-frame .form-buttons {
+        gap: 10px;
+        margin-top: 0px;
+      }
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    /* Scroll animations */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="#home" class="logo">
+          <img src="assets/img/logos/14.png" alt="Ramesh Trader">
+        </a>
+        
+        <nav class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </nav>
+        
+        <a href="#" class="download-btn">Download App</a>
+        <button class="mobile-menu-toggle">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose">&times;</button>
+    <nav class="mobile-nav-menu">
+      <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+      <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+      <li><a href="#testimonials" onclick="closeMobileMenu()">Testimonials</a></li>
+      <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+    </nav>
+    <a href="#" class="mobile-download-btn" onclick="closeMobileMenu()">Download App</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <!-- <div class="hero-content scroll-reveal">
+        <img src="assets/img/logos/14.jpg" alt="Ramesh Trader" class="hero-logo">
+        <h1 class="hero-title">Your Trusted Wholesale Partner — Since 1923</h1>
+        <p class="hero-description">From placing orders to tracking delivery, Ramesh Trader simplifies the wholesale journey with 3 powerful apps:</p>
+      </div> -->
+    </div>
+      
+    <!-- Full-Screen Banner Carousel -->
+    <div class="banner-carousel-section">
+        <div class="banner-carousel-container">
+          <div class="banner-carousel-wrapper">
+            
+
+            <!-- Banner 2 - Mobile First -->
+            <div class="banner-slide" style="background-image: url('assets/img/carousel/slide2.jpg');">
+              <div class="banner-overlay"></div>
+              <div class="container">
+                <div class="banner-content-left">
+                  <div class="banner-badge">Mobile First</div>
+                  <h2 class="banner-main-title">Order, Manage & Track</h2>
+                  <h3 class="banner-subtitle">Everything from your smartphone</h3>
+                  <p class="banner-description">Place bulk orders, manage inventory, and track deliveries - all from one powerful mobile platform. Experience wholesale trading like never before.</p>
+                  
+                  <div class="banner-actions">
+                    <a href="#" class="banner-btn primary">Get Mobile App</a>
+                    <a href="#" class="banner-btn secondary">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Banner 3 - Precision & Efficiency -->
+            <div class="banner-slide" style="background-image: url('assets/img/carousel/slide3.jpg');">
+              <div class="banner-overlay"></div>
+              <div class="container">
+                <div class="banner-content-left">
+                  <div class="banner-badge">Smart Solutions</div>
+                  <h2 class="banner-main-title">Precision & Efficiency</h2>
+                  <h3 class="banner-subtitle">Modern wholesale business solutions</h3>
+                  <p class="banner-description">Streamline your operations with intelligent inventory management, automated ordering, and real-time analytics. Work smarter, not harder.</p>
+                  
+                  <div class="banner-actions">
+                    <a href="#" class="banner-btn primary">Get Started</a>
+                    <a href="#contact" class="banner-btn secondary">Contact Us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Banner 4 - Trusted Partnership -->
+            <div class="banner-slide" style="background-image: url('assets/img/carousel/slide4.jpg');">
+              <div class="banner-overlay"></div>
+              <div class="container">
+                <div class="banner-content-left">
+                  <div class="banner-badge">Since 1923</div>
+                  <h2 class="banner-main-title">Trusted Partnership</h2>
+                  <h3 class="banner-subtitle">Building lasting relationships for generations</h3>
+                  <p class="banner-description">Join thousands of businesses who trust Ramesh Trader for their wholesale needs. Quality products, reliable service, and partnerships that last generations.</p>
+                  
+                  <div class="banner-actions">
+                    <a href="#" class="banner-btn primary">Partner With Us</a>
+                    <a href="#testimonials" class="banner-btn secondary">See Reviews</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Navigation -->
+          <!-- <div class="carousel-navigation">
+            <button class="carousel-btn prev-btn" onclick="changeBannerSlide(-1)">
+              ‹
+            </button>
+            <button class="carousel-btn next-btn" onclick="changeBannerSlide(1)">
+              ›
+            </button>
+          </div> -->
+
+          <!-- Carousel Dots -->
+          <div class="carousel-dots">
+            <span class="dot active" onclick="currentBannerSlide(1)"></span>
+            <span class="dot" onclick="currentBannerSlide(2)"></span>
+            <span class="dot" onclick="currentBannerSlide(3)"></span>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Legacy Section -->
+  <section id="about" class="legacy">
+    <div class="container">
+      <div class="legacy-header scroll-reveal">
+        <h2 class="section-title">A Legacy of Trust,<br>Innovation & Service</h2>
+        <p class="section-subtitle">Established in 1923, Ramesh Trader has been a pioneer in the wholesale business — offering quality products, fair pricing, and unmatched reliability. Today, we combine a century of experience with technology-driven tools to help businesses order, manage, and receive goods faster than ever before.</p>
+        <br>
+        <p class="section-subtitle">With our exclusive mobile apps, we've redefined how wholesalers and partners work — saving time, reducing errors, and boosting profits.</p>
+      </div>
+      
+      <div class="stats">
+        <div class="stat scroll-reveal">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Years of Trust</div>
+        </div>
+        <div class="stat scroll-reveal">
+          <div class="stat-number">10K+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat scroll-reveal">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="services-header scroll-reveal">
+        <h2 class="section-title">Our Key Services</h2>
+        <p class="section-subtitle">Comprehensive solutions powered by cutting-edge technology and decades of wholesale expertise</p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card scroll-reveal">
+          <div class="service-icon"><i class="far fa-shopping-cart"></i></div>
+          <h3 class="service-title">Bulk Ordering Made Simple</h3>
+         
+          <p class="service-description">Place and manage large-volume orders directly through our Wholesaler App — anytime, anywhere.</p>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="service-card scroll-reveal">
+          <div class="service-icon"><i class="far fa-sync-alt"></i></div>
+          <h3 class="service-title">Quick Reordering & History Access</h3>
+          <p class="service-description">Save time by repeating regular purchases with just a tap.</p>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="service-card scroll-reveal">
+          <div class="service-icon"><i class="far fa-wrench"></i></div>
+          <h3 class="service-title">Field Operations with Lineman App</h3>
+          
+          <p class="service-description">Linemen handle stock checks, delivery updates, and service requests — all synced in real time.</p>
+        </div>
+        
+        <!-- Service 4 -->
+        <div class="service-card scroll-reveal">
+          <div class="service-icon"><i class="far fa-map-marker-alt"></i></div>
+          <h3 class="service-title">On-Time Delivery with Live Tracking</h3>
+          
+          <p class="service-description">Track every shipment from dispatch to doorstep via our Delivery App with real-time location updates.</p>
+        </div>
+        
+        <!-- Service 5 -->
+        <div class="service-card scroll-reveal">
+          <div class="service-icon"><i class="far fa-compass"></i></div>
+          <h3 class="service-title">Smart Route Optimization</h3>
+          
+          <p class="service-description">Ensure faster bulk deliveries using intelligent route planning — saving time and fuel.</p>
+        </div>
+        
+        <!-- Service 6 -->
+        <div class="service-card scroll-reveal">
+          <div class="service-icon"><i class="far fa-comments"></i></div>
+          <h3 class="service-title">End-to-End Support</h3>
+         
+          <p class="service-description">From placing orders to final delivery, our support team and apps are with you every step of the way.</p>
+        </div>
+      
+      
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <div class="testimonials-header scroll-reveal">
+        <h2 class="section-title">Trusted by Businesses<br>Across Generations</h2>
+      </div>
+      
+      <!-- Testimonials Carousel Container -->
+      <div class="testimonials-carousel">
+        <div class="testimonials-wrapper">
+          <!-- Set 1 - Active by default -->
+          <div class="testimonials-set active">
+            <div class="testimonial-card">
+              <p class="testimonial-text">"We've worked with Ramesh Trader for over a decade — reliable service and tech that makes our life easier."</p>
+              <div class="testimonial-author">A. Kumar</div>
+              <div class="testimonial-role">FMCG Distributor</div>
+            </div>
+            
+            <div class="testimonial-card">
+              <p class="testimonial-text">"The delivery tracking feature alone has transformed how we operate. Highly recommended."</p>
+              <div class="testimonial-author">N. Shah</div>
+              <div class="testimonial-role">Retail Buyer</div>
+            </div>
+            
+            <div class="testimonial-card">
+              <p class="testimonial-text">"They've brought wholesale into the digital age. Placing orders is now as simple as using an app."</p>
+              <div class="testimonial-author">J. Mehta</div>
+              <div class="testimonial-role">Store Owner</div>
+            </div>
+          </div>
+
+          <!-- Set 2 -->
+          <div class="testimonials-set">
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Outstanding service quality and their mobile app has revolutionized our ordering process completely."</p>
+              <div class="testimonial-author">R. Patel</div>
+              <div class="testimonial-role">Wholesale Manager</div>
+            </div>
+            
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Ramesh Trader's efficiency and reliability make them our preferred wholesale partner. Highly professional."</p>
+              <div class="testimonial-author">S. Gupta</div>
+              <div class="testimonial-role">Business Owner</div>
+            </div>
+            
+            <div class="testimonial-card">
+              <p class="testimonial-text">"The real-time tracking and seamless ordering experience has improved our business operations significantly."</p>
+              <div class="testimonial-author">M. Singh</div>
+              <div class="testimonial-role">Supply Chain Head</div>
+            </div>
+          </div>
+
+          <!-- Set 3 -->
+          <div class="testimonials-set">
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Exceptional customer service and innovative technology solutions. They truly understand wholesale business."</p>
+              <div class="testimonial-author">P. Sharma</div>
+              <div class="testimonial-role">Regional Distributor</div>
+            </div>
+            
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Their lineman app has streamlined our field operations beyond expectations. Great technology integration."</p>
+              <div class="testimonial-author">K. Joshi</div>
+              <div class="testimonial-role">Operations Manager</div>
+            </div>
+            
+            <div class="testimonial-card">
+              <p class="testimonial-text">"A century of trust combined with modern solutions. Perfect partnership for our growing business needs."</p>
+              <div class="testimonial-author">D. Verma</div>
+              <div class="testimonial-role">Retail Chain Owner</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="testimonials-navigation">
+          <button class="testimonials-btn prev-btn" onclick="changeTestimonialSet(-1)">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="testimonials-btn next-btn" onclick="changeTestimonialSet(1)">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Dots Indicator -->
+        <div class="testimonials-dots">
+          <span class="testimonial-dot active" onclick="currentTestimonialSet(1)"></span>
+          <span class="testimonial-dot" onclick="currentTestimonialSet(2)"></span>
+          <span class="testimonial-dot" onclick="currentTestimonialSet(3)"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-content">
+        <div class="contact-info scroll-reveal">
+          <h2>Let's Work<br>Together</h2>
+          <p>Have a question, partnership inquiry, or want to place an order? We're here to help.</p>
+          
+          <h3 class="contact-section-title">Contact Information</h3>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="far fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <strong>Ramesh Trader Pvt. Ltd.</strong>
+              Chennai – Since 1923
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="far fa-phone-alt"></i>
+            </div>
+            <div class="contact-details">
+              <strong>+91-98765-43210</strong>
+              Call us anytime
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <strong>sales@rameshtrader.com</strong>
+              Email us your queries
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa fa-clock"></i>
+            </div>
+            <div class="contact-details">
+              <strong>Mon–Sat, 9 AM to 7 PM</strong>
+              Business hours
+            </div>
+          </div>
+        </div>
+        
+        <div class="mobile-frame-container scroll-reveal">
+          <div class="mobile-frame">
+            <div class="mobile-header">
+              <div class="mobile-notch"></div>
+              <div class="mobile-speaker"></div>
+            </div>
+            <div class="mobile-screen">
+              <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                
+                <form id="contactForm" action="mail.php" method="POST">
+                  <div class="form-content">
+                    <div class="form-group">
+                      <label for="name">Name *</label>
+                      <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="email">Email *</label>
+                      <input type="email" id="email" name="email" placeholder="Your email" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="phone">Phone</label>
+                      <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="message">Message *</label>
+                      <textarea id="message" name="message" rows="3" placeholder="Your message" required></textarea>
+                    </div>
+
+                    <div class="form-buttons">
+                      <button type="submit" class="form-btn primary" id="submitBtn">
+                        <span class="btn-text">📤 Send Message</span>
+                        <span class="btn-loading" style="display: none;">⏳ Sending...</span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <div id="formMessage" class="form-message" style="display: none;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/img/logos/14.jpg" alt="Ramesh Trader">
+            
+          </div>
+          <p class="footer-description">Your trusted wholesale partner for over 100 years, now powered by cutting-edge mobile technology.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Our Apps</h3>
+          <ul>
+            <li><a href="#">Wholesaler App</a></li>
+            <li><a href="#">Lineman App</a></li>
+            <li><a href="#">Delivery App</a></li>
+            <li><a href="#">Support Center</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fa fa-map-marker-alt"></i>Chennai, India</li>
+            <li><i class="fa fa-phone-alt"></i>+91-98765-43210</li>
+            <li><i class="fa fa-envelope"></i>sales@rameshtrader.com</li>
+            <li><i class="fa fa-clock"></i> Mon-Sat: 9 AM - 7 PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Ramesh Trader. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Header background on scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      }
+    });
+
+    // Scroll reveal animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all scroll-reveal elements
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Active navigation link
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-menu a');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Form submission with AJAX
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const formData = new FormData(form);
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoading = submitBtn.querySelector('.btn-loading');
+      const formMessage = document.getElementById('formMessage');
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline';
+      formMessage.style.display = 'none';
+      
+      // Send AJAX request
+      fetch('mail-dev.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      })
+      .then(data => {
+        // Success
+        formMessage.innerHTML = '<i class="fa fa-check-circle"></i> ' + data;
+        formMessage.className = 'form-message success';
+        formMessage.style.display = 'block';
+        form.reset(); // Clear the form
+      })
+      .catch(error => {
+        // Error
+        formMessage.innerHTML = '<i class="fa fa-exclamation-triangle"></i> Sorry, there was an error sending your message. Please try again.';
+        formMessage.className = 'form-message error';
+        formMessage.style.display = 'block';
+        console.error('Error:', error);
+      })
+      .finally(() => {
+        // Reset button state
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          formMessage.style.display = 'none';
+        }, 5000);
+      });
+    });
+
+    // Mobile menu functionality
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    
+    function openMobileMenu() {
+      mobileMenu.classList.add('active');
+      mobileMenuOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent body scroll when menu is open
+    }
+    
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+      document.body.style.overflow = ''; // Restore body scroll
+    }
+    
+    // Make closeMobileMenu available globally for onclick handlers
+    window.closeMobileMenu = closeMobileMenu;
+    
+    // Event listeners
+    mobileMenuToggle.addEventListener('click', openMobileMenu);
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+    
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
+
+    // Banner Carousel Functionality
+    let currentBannerIndex = 0;
+    const bannerSlides = document.querySelectorAll('.banner-slide');
+    const bannerDots = document.querySelectorAll('.carousel-dots .dot');
+    const totalBannerSlides = bannerSlides.length;
+
+    function showBannerSlide(index) {
+      // Hide all slides
+      bannerSlides.forEach(slide => slide.classList.remove('active'));
+      bannerDots.forEach(dot => dot.classList.remove('active'));
+      
+      // Show current slide
+      if (bannerSlides[index]) {
+        bannerSlides[index].classList.add('active');
+        if (bannerDots[index]) {
+          bannerDots[index].classList.add('active');
+        }
+      }
+    }
+
+    function changeBannerSlide(direction) {
+      currentBannerIndex += direction;
+      
+      if (currentBannerIndex >= totalBannerSlides) {
+        currentBannerIndex = 0;
+      } else if (currentBannerIndex < 0) {
+        currentBannerIndex = totalBannerSlides - 1;
+      }
+      
+      showBannerSlide(currentBannerIndex);
+    }
+
+    function currentBannerSlide(index) {
+      currentBannerIndex = index - 1;
+      showBannerSlide(currentBannerIndex);
+    }
+
+    // Auto-play banner carousel
+    setInterval(() => {
+      changeBannerSlide(1);
+    }, 6000); // Change slide every 6 seconds
+
+    // Initialize first banner slide
+    if (bannerSlides.length > 0) {
+      showBannerSlide(0);
+    }
+
+    // Testimonials Carousel Functionality
+    let currentTestimonialIndex = 0;
+    const testimonialSets = document.querySelectorAll('.testimonials-set');
+    const testimonialDots = document.querySelectorAll('.testimonial-dot');
+    const totalTestimonialSets = testimonialSets.length;
+
+    function showTestimonialSet(index) {
+      // Hide all testimonial sets
+      testimonialSets.forEach(set => set.classList.remove('active'));
+      testimonialDots.forEach(dot => dot.classList.remove('active'));
+      
+      // Show current testimonial set
+      if (testimonialSets[index]) {
+        testimonialSets[index].classList.add('active');
+        if (testimonialDots[index]) {
+          testimonialDots[index].classList.add('active');
+        }
+      }
+    }
+
+    function changeTestimonialSet(direction) {
+      currentTestimonialIndex += direction;
+      
+      if (currentTestimonialIndex >= totalTestimonialSets) {
+        currentTestimonialIndex = 0;
+      } else if (currentTestimonialIndex < 0) {
+        currentTestimonialIndex = totalTestimonialSets - 1;
+      }
+      
+      showTestimonialSet(currentTestimonialIndex);
+    }
+
+    function currentTestimonialSet(index) {
+      currentTestimonialIndex = index - 1;
+      showTestimonialSet(currentTestimonialIndex);
+    }
+
+    // Auto-play testimonials carousel (optional)
+    setInterval(() => {
+      changeTestimonialSet(1);
+    }, 8000); // Change testimonial set every 8 seconds
+
+    // Initialize first testimonial set
+    if (testimonialSets.length > 0) {
+      showTestimonialSet(0);
+    }
+  </script>
+</body>
+</html>
